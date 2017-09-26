@@ -16,6 +16,7 @@ var bio = {
 //$('#header').prepend(formattedName);
 $('#header').append(HTMLheaderName.replace("%data%", bio["name"]));
 */
+
 var work = {"jobs" : [
 	{"employer" : "CCB",
 	"title" : "bank teller",
@@ -37,7 +38,7 @@ var projects = {"projects" : [
 ]}
 
 var bio = {
-	"name" : "Alphard",
+	"name" : "Alphard Wang",
 	"role" : "",
 	"welcomMessage" : "",
 	"biopic" : "",
@@ -94,3 +95,13 @@ function displayWork(){
 }
 
 displayWork();
+
+function inName(){
+	var arrName = bio.name.split(" ");
+	arrName[0] = arrName[0][0].toUpperCase() + arrName[0].slice(1).toLowerCase();
+	arrName[1] = arrName[1].toUpperCase();
+	var name = arrName.join(" ");
+	bio.name = name; 
+}
+
+$("#main").append(internationalizeButton);
