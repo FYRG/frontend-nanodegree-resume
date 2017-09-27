@@ -31,11 +31,27 @@ var work = {"jobs" : [
 ]}
 
 var projects = {"projects" : [
-	{"title" : "",
-	"dates" : "",
-	"description" : "",
+	{"title" : "Web Design",
+	"dates" : "2017-09-27",
+	"description" : "Create a Web App",
 	"img" : []}
-]}
+	],
+	"display" : function(){
+		for(var each in projects.projects){
+			$("#projects").append(HTMLprojectStart);
+			var formattedTitle = projects.projects[each].title;
+			var formattedDates = projects.projects[each].dates;
+			var formattedDescription = projects.projects[each].description;
+			var formattedImg = projects.projects[each].img;
+			$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", formattedTitle));
+			$(".date-text:last").append(HTMLprojectDates.replace("%data%", formattedDates));
+			$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", formattedDescription));
+			if( formattedImg.length > 0){
+				$(".project-entry:last").append(HTMLprojectImage.replace("%data%", formattedImg));
+			}
+			}
+		}
+	}
 
 var bio = {
 	"name" : "Alphard Wang",
@@ -105,3 +121,7 @@ function inName(){
 }
 
 $("#main").append(internationalizeButton);
+
+projects.display();
+
+
